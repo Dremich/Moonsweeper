@@ -32,7 +32,7 @@ preprompt = (
     "Output JSON strings contain an action specifying a row and column (indexed by 0), "
     "and a boolean indicating if the action is a flag. If the flag is false, the action "
     "selects the tile to check it for a mine. If the flag is true, the action flags the "
-    "tile saying 'there is probably a mine here.' "s
+    "tile saying 'there is probably a mine here.' "
     "Output JSON using the following format:\n"
     "{\n"
     "  \"row\": // state the selected row, from 0 to N-1\n"

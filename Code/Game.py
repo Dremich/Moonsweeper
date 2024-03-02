@@ -15,14 +15,14 @@ class Game:
     unexplored = -3
     exploded = -4    
     
-    def __init__(self, size, numMines, firstMove):  # Fixed method name (init instead of init)
+    def __init__(self, size, numMines, firstMove, seed=0):  # Fixed method name (init instead of init)
         # Parse first move
         move = json.loads(firstMove)
         row, col = move["row"], move["col"]
     
         # Generate valid map
         while(True):
-            self.board = Game.generateMap(size, numMines)
+            self.board = Game.generateMap(size, numMines, seed)
             if not self.board[row][col] == -1:
                 break
 
@@ -58,7 +58,7 @@ class Game:
             gameState (list): A 2D list representing which tiles have been revealed.
         """
         # Base case: if the current tile is already revealed or out of bounds, return
-        if row < 0 or row >= len(self.board) or col < 0 or col >= len(self.board[0]) or self.gameState[row][col] != self.unexplored:
+        if row < 0 or row >= len(self.board) or col < 0 or col >= len(self.board) or self.gameState[row][col] != self.unexplored:
             return
         
         # Mark the current tile as revealed
@@ -68,7 +68,7 @@ class Game:
         if self.board[row][col] == Game.safe:
             for dr in [-1, 0, 1]:
                 for dc in [-1, 0, 1]:
-                    if not dr == 0 and dc == 0:
+                    if not dr == 0 or dc == 0:
                         self.revealTiles(row + dr, col + dc)
         
     def generateMap(size, difficulty, seed=0):
@@ -127,6 +127,6 @@ class Game:
         return json.dumps(move)
     
     
-game = Game(3, 3, Game.newMove(0, 0, 0))
+game = Game(5, 3, Game.newMove(0, 0, 0), 12)
 print(game.gameStateToString())
 
