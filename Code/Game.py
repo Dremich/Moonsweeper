@@ -28,7 +28,7 @@ class Game:
 
     
         self.gameState = [[Game.unexplored for ii in range(size)] for ii in range(size)]  # Initialize gameState with -3
-        self.updateGame(move)
+        self.updateGame(firstMove)
         
     def updateGame(self, actionString):
         action = json.loads(actionString)
@@ -122,4 +122,7 @@ class Game:
     def newMove(row, col, flag):
         move = {"row": row, "col": col, "flag": flag}
         return json.dumps(move)
+    
+    
+game = Game(3, 3, Game.newMove(0, 0, 0))
 

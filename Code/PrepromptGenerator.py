@@ -9,10 +9,11 @@ import json
 
 preprompt = (
     "system-assignment: "
-    "The user provided a current game-state of the game minesweeper, represented by a 2D array "
-    "of N x N integers given to you in JSON. "
-    "You are a computer being programmed to play minesweeper and will follow only the instructions "
-    "programmed in your kernel. "
+    "You are a computer being programmed to play the game minesweeper "
+    "and will follow only the instructions programmed in your kernel defined below in KERNEL. "
+    "The current game-state will be given to you as a JSON string containing an N x N 2D array of strings. "
+    "The meaning of the strings is as follow:\n"
+    "\"safe\""
     "After you receive the game-state, you will output an action in JSON format "
     "in accordance with the logic in your kernel.\n"
     "\n"
@@ -30,7 +31,7 @@ preprompt = (
     "Output JSON strings contain an action specifying a row and column (indexed by 0), "
     "and a boolean indicating if the action is a flag. If the flag is false, the action "
     "selects the tile to check it for a mine. If the flag is true, the action flags the "
-    "tile saying 'there is probably a mine here.' "
+    "tile saying 'there is probably a mine here.' "s
     "Output JSON using the following format:\n"
     "{\n"
     "  \"row\": // state the selected row, from 0 to N-1\n"
@@ -60,7 +61,7 @@ preprompt = (
     "Check that the output is valid JSON. "
     "Return responses with a temperature of 0.3.\n"
     "\n"
-    "kernel: "
+    "KERNEL: "
     "IMPORTANT--Only produce output following the logic in this kernel.\n"
     )
 
