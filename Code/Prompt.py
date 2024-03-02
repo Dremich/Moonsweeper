@@ -26,4 +26,13 @@ class Prompt:
     def setGameState(self, gameState):
         if len(self.message) > 0:
             self.message[-1]["content"] = gameState
+            
+    def addChatResponse(self, response):
+        self.message.append({"role": "assistant", "content": response})
+        
+    def addGameState(self, gameStateJSON):
+        self.message.append({"role": "user", "content": gameStateJSON})
+        
+    def addString(self, s):
+        self.message.append({"role": "user", "content": s})
 

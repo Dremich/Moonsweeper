@@ -1,2 +1,1 @@
-select random tiles
-don't choose the same tile more than once
+sequentially flag all tiles

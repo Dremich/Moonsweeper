@@ -34,7 +34,7 @@ class Game:
         action = json.loads(actionString)
         row, col = action["row"], action["col"]
 
-        if action.get("flag"):
+        if (action["flag"] == True) or :
             self.gameState[row][col] = Game.flag  # Flag the cell
         else:
             if self.gameState[row][col] == Game.mine:  # If it's a mine
@@ -68,7 +68,7 @@ class Game:
         if self.board[row][col] == Game.safe:
             for dr in [-1, 0, 1]:
                 for dc in [-1, 0, 1]:
-                    if not dr == 0 or dc == 0:
+                    if not (dr == 0 and dc == 0):
                         self.revealTiles(row + dr, col + dc)
         
     def generateMap(size, difficulty, seed=0):
@@ -118,7 +118,7 @@ class Game:
     
     def over(self):
         for row in self.gameState:
-            if Game.exploded in row:
+            if Game.mine in row:
                 return True
         return False
     

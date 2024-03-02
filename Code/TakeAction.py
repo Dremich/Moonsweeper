@@ -7,7 +7,7 @@ def takeAction(prompt):
     response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages = prompt,
-    temperature = 0.5
+    temperature = 0.7
     )
     data = response.choices[0].message.content
     print(data)
