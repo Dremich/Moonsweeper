@@ -1,6 +1,7 @@
 from Prompt import Prompt
 from Game import Game
 from TakeAction import takeAction
+import openai
 
 # Create initial prompt
 kernel_path = "kernel.txt"
