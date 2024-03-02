@@ -1,8 +1,9 @@
+
 from openai import OpenAI
 
 
 def takeAction(prompt):
-    client = OpenAI(api_key = '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')
+    client = OpenAI(api_key = 'apikey')
     response = client.Chat.completions.create(
     model="gpt-3.5-turbo",
     messages = prompt,
