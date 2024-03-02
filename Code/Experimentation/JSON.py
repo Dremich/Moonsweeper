@@ -9,7 +9,7 @@ data = {
 
 # Create a 2D array
 # Define the dimensions of the 2D array
-rows = 3
+rows = 4
 cols = 4
 
 # Create a 2D array
@@ -30,7 +30,7 @@ for i in range(rows):
 
 
 # Serialize to JSON string
-json_string = json.dumps(data)
+json_string = json.dumps(two_d_array)
 
 print(json_string)  # Output: {"name": "John", "age": 30, "city": "New York"}
 
