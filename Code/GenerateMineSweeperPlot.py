@@ -57,8 +57,8 @@ def getAdjacent(arr, i, j):
     
     return v
 #Test
-size = 10
-map = generateMap(size, 10)
+size = 4
+map = generateMap(size, 4)
 for i in range(size):
     print()
     for j in range(size):
