@@ -6,6 +6,7 @@
 # Andrew Tolton, Elijah Tolton, Allan Torres, Alesandro Rodriguez
 
 import json
+import Game
 
 preprompt = (
     "system-assignment: "

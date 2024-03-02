@@ -71,9 +71,12 @@ class Game:
                     if not dr == 0 and dc == 0:
                         self.revealTiles(row + dr, col + dc)
         
-    def generateMap(size, difficulty):
+    def generateMap(size, difficulty, seed=0):
         map = [[0] * size for ii in range(size)]
+        
         rng = random.Random()
+        if (not seed == 0):
+            rng.seed(seed)
 
         # Place mines randomly
         for ii in range(difficulty):  # Fixed missing iterator variable
@@ -125,4 +128,5 @@ class Game:
     
     
 game = Game(3, 3, Game.newMove(0, 0, 0))
+print(game.gameStateToString())
 
