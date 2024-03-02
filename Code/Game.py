@@ -125,5 +125,4 @@ class Game:
     def newMove(row, col, flag):
         move = {"row": row, "col": col, "flag": flag}
         return json.dumps(move)
-    
 
