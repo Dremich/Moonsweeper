@@ -1,26 +1,12 @@
 import openai
+import os
 
-openai.api_key = ''
+openai.api_key = os.getenv('OPEN_API_KEY')
 
-def takeAction (preprompt, instructions, initial_state):
-
-    prompt = ''
-    with open(preprompt, 'r') as file:
-      for line in file:
-        prompt += line.strip()
-
-    instruct = ''
-    with open(instructions, 'r') as file:
-      for line in file:
-        instruct += line.strip()
-
+def takeAction(prompt):
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    messages=[
-        {"role": "system", "content": prompt},
-        {"role": "system", "content": instruct},
-        {"role": "user", "content": initial_state},
-      ]
+    messages = prompt
     )
-    return print(response)
-initialize('/content/preprompt.txt', '/content/instructions.txt', ['n', 0 ,1,2,4,5])
+    data = response.choices[0].message
+    return (data, print(response.choices[0].message))
