@@ -1,11 +1,12 @@
 from Prompt import Prompt
 from Game import Game
 from TakeAction import takeAction
-import openai
+
+size = 5
 
 # Create initial prompt
 kernel_path = "kernel.txt"
-prompt = Prompt.__init__(kernel_path);
+prompt = Prompt(kernel_path, size);
 
 # Initialize game
 size = 5
