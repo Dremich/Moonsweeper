@@ -16,11 +16,11 @@ class Prompt:
         # Create initial empty game state
         emptyBoard = [["unexplored" for _ in range(N)] for _ in range(N)]
         
-        self.message = [{"system": instructions}]
-        self.message.append({"user": json.dumps(emptyBoard)})
+        self.message = [{"role": "system", "content": instructions}]
+        self.message.append({"role": "user", "content": json.dumps(emptyBoard)})
         
 
     def setGameState(self, gameState):
         if len(self.message) > 0:
-            self.message[-1]["user"] = gameState
+            self.message[-1]["content"] = gameState
 
