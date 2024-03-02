@@ -17,7 +17,8 @@ class Game:
     
     def __init__(self, size, numMines, firstMove):  # Fixed method name (init instead of init)
         # Parse first move
-        row, col = firstMove["row"], firstMove["col"]
+        move = json.loads(firstMove)
+        row, col = move["row"], move["col"]
     
         # Generate valid map
         while(True):
@@ -26,7 +27,8 @@ class Game:
                 break
 
     
-        self.gamestate = [[Game.unexplored for ii in range(size)] for ii in range(size)]  # Initialize gamestate with -3
+        self.gameState = [[Game.unexplored for ii in range(size)] for ii in range(size)]  # Initialize gameState with -3
+        self.updateGame(move)
         
     def updateGame(self, actionString):
         action = json.loads(actionString)
@@ -116,4 +118,8 @@ class Game:
             if Game.exploded in row:
                 return True
         return False
+    
+    def newMove(row, col, flag):
+        move = {"row": row, "col": col, "flag": flag}
+        return json.dumps(move)
 

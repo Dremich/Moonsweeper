@@ -1,5 +1,5 @@
-import Prompt
-import Game
+from Prompt import Prompt
+from Game import Game
 from TakeAction import takeAction
 
 # Create initial prompt
@@ -14,9 +14,10 @@ firstMove = takeAction(prompt.message)
 game = Game.__init__(size, numMines, firstMove)
 
 # Main game sequence
-while (not game.Over()):
+while (not game.over()):
     move = takeAction(prompt.message)
-    gameState = game.updateGame(move)
+    game.updateGame(move)
+    gameState = game.gameStateToString()
     prompt.setGameState(gameState)
     
 
