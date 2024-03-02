@@ -34,7 +34,7 @@ class Game:
         action = json.loads(actionString)
         row, col = action["row"], action["col"]
 
-        if (action["flag"] == True) or :
+        if (action["flag"] == True) or (action["flag"] == 1):
             self.gameState[row][col] = Game.flag  # Flag the cell
         else:
             if self.gameState[row][col] == Game.mine:  # If it's a mine
