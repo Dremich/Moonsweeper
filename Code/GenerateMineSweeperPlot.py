@@ -8,13 +8,13 @@ def generateMap(size, numMines):
         row = rng.randint(0, size-1)
         col = rng.randint(0, size-1)
         if map[row][col] == -1:
-            mines -= 1
+            mines -= 1 #If index already is a mine run loop again
         else:
             map[row][col] = -1
     
     minesAdjacent = 0
     for i in range(size):
-        for j in range(size):
+        for j in range(size): #Iterate through 2D array and set elements to the # of bombs touching
             if map[i][j] != -1:
                 list = getAdjacent(map, i, j)
                 for x in range(len(list)):
@@ -56,7 +56,7 @@ def getAdjacent(arr, i, j):
         v.append(arr[i + 1][j + 1])
     
     return v
-
+#Test
 size = 10
 map = generateMap(size, 10)
 for i in range(size):
