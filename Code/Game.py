@@ -2,7 +2,7 @@
 """
 HackUSU Prompt
 
-@author Andrew Tolton, Allan Torres, Waldo, Elijah Tolton
+@author Andrew Tolton, Allan Torres, Alesandro rodriguez, Elijah Tolton
 """
 
 import random
@@ -89,3 +89,31 @@ class Game:
                                     if 0 <= i+di < size and 0 <= j+dj < size and map[i+di][j+dj] == -1)
         return map
         
+    def gameStateToString(self):
+        result = []
+        for row in self.gameState:
+            converted_row = []
+            for num in row:
+                if num == Game.safe:
+                    converted_row.append("safe")
+                elif num == Game.mine:
+                    converted_row.append("mine")
+                elif num == Game.flag:
+                    converted_row.append("flag")
+                elif num == Game.unexplored:
+                    converted_row.append("unexplored")
+                elif num == Game.exploded:
+                    converted_row.append("exploded")
+                elif 1 <= num <= 8:
+                    converted_row.append(str(num))
+                else:
+                    raise ValueError("Invalid integer value in the input array")
+            result.append(converted_row)
+        return result
+    
+    def over(self):
+        for row in self.gameState:
+            if Game.exploded in row:
+                return True
+        return False
+
