@@ -20,5 +20,11 @@ while (not game.over()):
     gameState = game.gameStateToString()
     prompt.setGameState(gameState)
     
+    # Print game
+    for ii in range(size):
+        print()
+        for ij in range(size):
+            print(str(game.gameState[ii][ij]).rjust(2), end = ' ')
+    
 
 
