@@ -1,26 +1,21 @@
-import openai
+def initialize(preprompt, instructions):
+    # Open files
+    p = open(preprompt)
+    i = open(instructions)
 
-openai.api_key = ''
+    # Read contents and concatenate with newline
+    result = p.read().strip() + "\n" + i.read().strip()
 
-def initialize (preprompt, instructions, initial_state):
+    # Close files
+    p.close()
+    i.close()
 
-    prompt = ''
-    with open(preprompt, 'r') as file:
-      for line in file:
-        prompt += line.strip()
+    # Return concatenated string
+    return result
 
-    instruct = ''
-    with open(instructions, 'r') as file:
-      for line in file:
-        instruct += line.strip()
 
-    response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {"role": "system", "content": prompt},
-        {"role": "system", "content": instruct},
-        {"role": "user", "content": initial_state},
-      ]
-    )
-    return print(response)
-initialize('/content/preprompt.txt', '/content/instructions.txt', ['n', 0 ,1,2,4,5])
+preprompt = "test.txt"
+instructions = "empty.txt"
+
+t = initialize(preprompt, instructions)
+print(t)
