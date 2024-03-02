@@ -1,3 +1,10 @@
+#### ChatGPT Pre-prompt ####
+
+# Moonsweeper
+# HackUSU 2024
+
+# Andrew Tolton, Elijah Tolton, Allan Torres, Alesandro Rodriguez
+
 import random
 
 def generateMap(size, numMines):
@@ -57,8 +64,8 @@ def getAdjacent(arr, i, j):
     
     return v
 #Test
-size = 10
-map = generateMap(size, 10)
+size = 4
+map = generateMap(size, 4)
 for i in range(size):
     print()
     for j in range(size):
