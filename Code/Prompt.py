@@ -1,10 +1,13 @@
-from PrepromptGenerator import preprompt
+from PrepromptGenerator import preprompt, guardrails, kernelHeader
 import json
 
 class Prompt:
     
     def __init__(self, kernel_path, N):
         instructions = ""
+        instructions += preprompt
+        instructions += guardrails
+        instructions += kernelHeader
         
         # Read user kernel
         with open(kernel_path, "r") as file:            

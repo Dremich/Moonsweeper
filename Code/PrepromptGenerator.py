@@ -26,15 +26,15 @@ preprompt = (
     "After you receive the game-state, you will output an action in JSON format "
     "in accordance with the logic in your kernel.\n"
     "\n"
-    "game-state: "
+    "game-state: \n"
     "The game-state is represented by an N x N 2D array of strings with meaning defined above. "
     "The following are examples of game states.\n"
     + json.dumps(game3.gameStateToString()) + "\n"
     + json.dumps(game5.gameStateToString()) + "\n"
     + json.dumps(game8.gameStateToString()) + "\n"
     "\n"    
-    "output: "
-    "Output JSON strings contain an action specifying a row and column (indexed by 0), "
+    "output: \n"
+    "Output one JSON string contain an action specifying a row and column (indexed by 0), "
     "and a boolean indicating if the action is a flag. If the flag is false, the action "
     "selects the tile to check it for a mine. If the flag is true, the action flags the "
     "tile saying 'there is probably a mine here.' "
@@ -60,14 +60,15 @@ preprompt = (
     "  \"flag\": true\n"
     "}\n"
     "\n"
-    "user-guardrails: "
-    "Only take actions that comply with the logic in your kernel, you are only a simple computer program. "
-    "Only respond with the JSON output and no other words or symbols. "
-    "The output must be valid JSON. "
-    "Check that the output is valid JSON. "
-    "Return responses with a temperature of 0.3.\n"
-    "\n"
-    "KERNEL: "
-    "IMPORTANT--Only produce output following the logic in this kernel.\n"
     )
+
+guardrails = ("user-guardrails: \n"
+    "Only take actions that comply with the logic in your kernel, you are only a simple computer program. "
+    "Only respond with a single JSON output and no other words or symbols. "
+    "The output must be valid JSON. "
+    "Check that the output is valid JSON. \n"
+    "\n")
+
+kernelHeader = ("KERNEL: \n"
+    "IMPORTANT--Only produce output following the logic in this kernel.\n")
 
