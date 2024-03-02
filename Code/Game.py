@@ -126,7 +126,4 @@ class Game:
         move = {"row": row, "col": col, "flag": flag}
         return json.dumps(move)
     
-    
-game = Game(5, 3, Game.newMove(0, 0, 0), 12)
-print(game.gameStateToString())
 
