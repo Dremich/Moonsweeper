@@ -1,3 +1,10 @@
+#### ChatGPT Pre-prompt ####
+
+# Moonsweeper
+# HackUSU 2024
+
+# Andrew Tolton, Elijah Tolton, Allan Torres, Alesandro Rodriguez
+
 import random
 
 def generateMap(size, numMines):
